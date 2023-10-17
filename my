@@ -86,3 +86,17 @@ int main() {
 
     return 0;
 }
+int main() {
+    std::string expression;
+    std::cout << "Введите математическое выражение: ";
+    std::getline(std::cin, expression);
+
+    try {
+        double result = evaluateExpression(expression);
+        std::cout << "Результат: " << result << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "Ошибка: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
