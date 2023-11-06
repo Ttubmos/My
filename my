@@ -14,17 +14,7 @@ int precedence(char op) {
     return 0;
 }
 
-double applyOperator(double a, double b, char op) {
-    switch (op) {
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
-        case '/': return a / b;
-        default: return 0.0;
-    }
-}
 
-double evaluateExpression(const std::string& expression) {
     std::stack<double> values;
     std::stack<char> operators;
     std::istringstream iss(expression);
@@ -35,10 +25,7 @@ double evaluateExpression(const std::string& expression) {
 
         if (token.empty()) {
             continue;
-        }
-
-        if (isdigit(token[0])) {
-            values.push(std::stod(token));
+     values.push(std::stod(token));
         } else if (isOperator(token[0])) {
             char currentOperator = token[0];
             while (!operators.empty() && isOperator(operators.top()) &&
@@ -66,12 +53,7 @@ double evaluateExpression(const std::string& expression) {
         double b = values.top(); values.pop();
         double a = values.top(); values.pop();
         char op = operators.top(); operators.pop();
-        values.push(applyOperator(a, b, op));
-    }
-
-    return values.top();
-}
-
+        values.push(applyOperator(a, b, op)); return values.top();
 int main() {
     std::string expression;
     std::cout << "Введите математическое выражение: ";
@@ -81,24 +63,13 @@ int main() {
         double result = evaluateExpression(expression);
         std::cout << "Результат: " << result << std::endl;
     } catch (std::exception&) {
-        std::cout << "Ошибка: Неверное выражение." << std::endl;
-    }
-
-    return 0;
-}
-int main() {
-    std::string expression;
-    std::cout << "Введите математическое выражение: ";
-    std::getline(std::cin, expression);
-
-    try {
-        double result = evaluateExpression(expression);
+        std::cout << "Ошибка: Неверное выражение." << stическое выражение: ";
+    std::getline(std::cin, expression)   try {
+        double result = ealuateExpression(expression);
         std::cout << "Результат: " << result << std::endl;
     } catch (const std::exception& e) {
         std::cout << "Ошибка: " << e.what() << std::endl;
-    }
-
-    return 0;
+    }    return 0;
 }
 #include <iostream>
 #include <stack>
