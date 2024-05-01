@@ -2,24 +2,7 @@
 #include <stack>
 #include <cctype>
 #include <string>
-#include <sstream>
-
-bool isOperator(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/';
-}
-
-bool isOperator(char c) {
-    return c == '+' || c == '-' || c == '*' || c == '/';
-}
-
-
-    std::stack<double> values;
-    std::stack<char> operators;
-    std::istringstream iss(expression);
-
-    while (!iss.eof()) {
-        std::string token;
-        iss >> token;
+#includ
 
         if (token.empty()) {
             continue;
