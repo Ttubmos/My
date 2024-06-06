@@ -10,9 +10,6 @@
         } else if (isOperator(token[0])) {
             char currentOperator = token[0];
             while (!operators.empty() && isOperator(operators.top()) &&
-                   precedence(operators.top()) >= precedence(currentOperator)) {
-                double b = values.top(); values.pop();
-                double a = values.top(); values.pop();
                 char op = operators.top(); operators.pop();
                 values.push(a
 bool isOperator(char c) {
